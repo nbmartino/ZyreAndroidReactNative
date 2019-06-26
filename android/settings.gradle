@@ -1,0 +1,6 @@
+rootProject.name = 'RNTest0MQ'
+
+include ':app'
+
+//include ':react-native-zeromq'
+//project(':react-native-zeromq').projectDir = file('../node_modules/react-native-zeromq/android')
