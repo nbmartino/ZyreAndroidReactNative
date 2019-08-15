@@ -126,6 +126,8 @@ public class P2PModule extends ReactContextBaseJavaModule {
         }
     }
 
+
+
     private static final String E_UUID_ERROR = "E_UUID_ERROR";
     @ReactMethod
     public void promisedUUID(Promise promise) {
@@ -139,6 +141,20 @@ public class P2PModule extends ReactContextBaseJavaModule {
             promise.reject(E_UUID_ERROR, e);
         }
     }
+
+    @ReactMethod
+    public void promisedLocalUUID(Promise promise) {
+        try {
+            String msg = ((MainActivity)getCurrentActivity()).mZyreService.getLocalUUID();
+            Log.i("P2PModule->promisedUUID",msg);
+            WritableMap map = Arguments.createMap();
+            map.putString("localUUID", msg );
+            promise.resolve(map);
+        } catch (IllegalViewOperationException e) {
+            promise.reject(E_UUID_ERROR, e);
+        }
+    }
+
     @ReactMethod
     public void promisedPeers(Promise promise) {
         try {

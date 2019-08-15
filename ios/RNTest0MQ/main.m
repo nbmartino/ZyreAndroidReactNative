@@ -8,9 +8,16 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "P2PModule.h"
 
 int main(int argc, char * argv[]) {
+  
+  P2PModule *p2p_module = [[P2PModule alloc] init];
+  [p2p_module setupZyre]; // call setup function
+  
   @autoreleasepool {
+    
+   
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
   }
 }
